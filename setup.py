@@ -18,11 +18,11 @@ long_description = "\n\n".join([
 
 # Actual setup definition =====================================================
 setup(
-    name='edeposit.amqp.storage',
+    name='edeposit.amqp.marcxml2mods',
     version=getVersion(changelog),
-    description="Binary storage for the Edeposit project.",
+    description="Edeposit's AMQP service for converting MARC XML to MODS.",
     long_description=long_description,
-    url='https://github.com/edeposit/edeposit.amqp.storage/',
+    url='https://github.com/edeposit/edeposit.amqp.marcxml2mods',
 
     author='Edeposit team',
     author_email='edeposit@email.cz',
@@ -42,11 +42,6 @@ setup(
     package_dir={'': 'src'},
     namespace_packages=['edeposit', 'edeposit.amqp'],
 
-    scripts=[
-        'bin/edeposit_storage_runzeo.sh',
-        'bin/edeposit_storage_server.py',
-    ],
-
     zip_safe=False,
     include_package_data=True,
     install_requires=open("requirements.txt").read().splitlines(),
@@ -55,8 +50,7 @@ setup(
     tests_require=["pytest"],
     extras_require={
         "test": [
-            "pytest",
-            "fake-factory"
+            "pytest"
         ],
         "docs": [
             "sphinx",
