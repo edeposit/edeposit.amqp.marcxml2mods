@@ -29,12 +29,15 @@ def converted():
 # Tests =======================================================================
 def test_chain(marc_oai, converted):
     res = reactToAMQPMessage(
-        ConversionRequest(marc_xml=marc_oai, uuid="asd"),
-        ""
+        ConversionRequest(
+            marc_xml=marc_oai,
+            uuid="asd",
+            url="http://kitakitsune.org"
+        ),
+        lambda x: x
     )
 
     # with open("asd.xml", "wt") as f:
     #     f.write(res.mods_files[0])
 
     assert res.mods_files[0] == converted
-# 
