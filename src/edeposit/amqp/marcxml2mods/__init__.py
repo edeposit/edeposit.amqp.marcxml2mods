@@ -44,6 +44,7 @@ def reactToAMQPMessage(message, send_back):
             marcxml2mods(
                 marc_xml=message.marc_xml,
                 uuid=message.uuid,
+                url=message.url
             )
         )
 
